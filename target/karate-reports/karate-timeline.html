@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"testscripts\/GetCall[1:3]","start":1666171281085,"end":1666171281536,"title":"testscripts\/GetCall[1:3] 14:51:21.085-14:51:21.536 Make a GET request and Validate status code as 200"},{"id":2,"group":1,"content":"testscripts\/PutCall[1:6]","start":1666171283505,"end":1666171284509,"title":"testscripts\/PutCall[1:6] 14:51:23.505-14:51:24.509 Make a PUT request and validate status code as 200"},{"id":3,"group":1,"content":"testscripts\/DeleteCall[1:3]","start":1666171278793,"end":1666171280319,"title":"testscripts\/DeleteCall[1:3] 14:51:18.793-14:51:20.319 Make a DELETE request and validate status code as 204"},{"id":4,"group":1,"content":"testscripts\/demo2[1:2]","start":1666171281041,"end":1666171281041,"title":"testscripts\/demo2[1:2] 14:51:21.041-14:51:21.041 Print Hello World"},{"id":5,"group":1,"content":"testscripts\/demo[1:2]","start":1666171280969,"end":1666171280985,"title":"testscripts\/demo[1:2] 14:51:20.969-14:51:20.985 Print Hello World"},{"id":6,"group":1,"content":"testscripts\/PostCall[1:7]","start":1666171281585,"end":1666171282553,"title":"testscripts\/PostCall[1:7] 14:51:21.585-14:51:22.553 Make a simple POST request without Authorization Header and validate status code as 201"},{"id":7,"group":1,"content":"testscripts\/PostCall[2:14]","start":1666171282558,"end":1666171282962,"title":"testscripts\/PostCall[2:14] 14:51:22.558-14:51:22.962 Make a POST request  with Authorization Header and validate status code as 201","className":"failed"},{"id":8,"group":1,"content":"testscripts\/PostCall[3:21]","start":1666171282976,"end":1666171283370,"title":"testscripts\/PostCall[3:21] 14:51:22.976-14:51:23.370 Make a POST request using a json file and Validate the response","className":"failed"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
